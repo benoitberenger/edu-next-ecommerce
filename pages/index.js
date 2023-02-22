@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.css'
 export default function Home({products, categories}) {
 
   console.log(products);
+
   return (
     <>
     <Layout leftComponent={<Title>Gauche</Title>}>
@@ -31,8 +32,6 @@ export default function Home({products, categories}) {
           )
         })
       }
-
-
 
           <Title customColor='yellow'>Titre du site</Title>
           <Title customColor='orange'>Titre du site</Title>
@@ -85,7 +84,7 @@ export async function getStaticProps(){
 
   return {
     props: {
-      products: responseJson.data.products.data,
+      products: responseJson.data?.products.data || [],
       categories: []
     }
   }
